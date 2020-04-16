@@ -77,42 +77,53 @@ och
 
 ### Före `\\begin{document}`
 
-    \datum{<dag>}{<månad}{<år>}
 När hölls mötet?
+    
+    \datum{<dag>}{<månad}{<år>}
 
-    \plats{<var hölls mötet>}
 Var hölls mötet?
+    
+    \plats{<var hölls mötet>}
 
-    \styrelse{<namn1>, <namn2>, etc}
 Närvarande från styrelsen
+    
+    \styrelse{<namn1>, <namn2>, etc}
 
-    \medlemmar{<bilaga>}
 Närvarande medlemmar
+    
+    \medlemmar{<bilaga>}
 
-    \bilaga{<vilken bilaga>}
 Bilagor inkluderade med dokumentet, kan finnas hur många som helst. Listan kommer i samma ordning som de är listade.
+    
+    \bilaga{<vilken bilaga>}
+
+Underteckningslinjer i slutet av dokumentet. Kan finnas hur många som helst.
 
     \signatur{<vem ska skriva under dokumentet>}
-Underteckningslinjer i slutet av dokumentet. Kan finnas hur många som helst.
 
 ### Mellan `\begin{document}` och `\end{document}`
 
-    \punkt{<titel>}{<innehåll>}
 En punkt i protokollet
+
+    \punkt{<titel>}{<innehåll>}
+
+En mera avancerad punkt i protokollet, klarar av radbyten för att göra olika paragrafer.
 
     \begin{punkten}{<titel>}
         \<innehåll>
     \end{punkten}
-En mera avancerad punkt i protokollet, klarar av radbyten för att göra olika paragrafer.
-
-    \anteckningstart{<innehåll>}
+    
 Kommentar som inte hör till någon punkt. Använd det här ifall kommentarern kommer före första punkten.
 
-    \anteckning{<innehåll>}
+    \anteckningstart{<innehåll>}
+
 Kommentar som inte hör till någon punkt. Använd det här ifall kommentaren kommer mellan punkter.
 
-    \anteckningslut{<innehåll>}
+    \anteckning{<innehåll>}
+
 Kommentar som inte hör till någon punkt. Använd det här ifall kommentaren kommer efter sista punkten.
+
+    \anteckningslut{<innehåll>}
 
 ## Verktyg
 
