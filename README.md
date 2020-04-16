@@ -65,7 +65,7 @@ Alla kommandon är valbara, med det undantaget att man måste sätta med åtmins
 
 ## Kommandon
 
-### `\documentclas`
+### `\documentclass`
 
 För att välja mellan måmö och stymö protokollen ska man välja mellan de här två kommandona:
 
