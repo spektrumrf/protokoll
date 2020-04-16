@@ -1,0 +1,169 @@
+%% För att skriva ett styrelsemötes protokoll ska man ha med det extra argumentet "styrelse" i class definitionen.
+%\documentclass[styrelse]{protokollspektrum}
+% För att skriva ett måmö protokoll behövs bara class definitionen ensam
+\documentclass{protokollspektrum}
+
+
+% Datumet för mötet. Används i båder "headern" på alla sidor och i rubriken.
+% {Dag}{Månad}{År}
+%
+% Exempel:
+%	\datum{13}{2}{2014} 	% 13:e februari 2014
+\datum{14}{9}{2016}
+\extradatum{28}{8}{2016}
+
+
+% List på alla styrelsemedlemmar som var närvarande vid mötet
+% Man kan "kommentera" bort de som inte är närvarande, med procent-tecknet
+\styrelse{
+	Förnamn1 Efternamn1, % Ordförande
+	Förnamn2 Efternamn2, % Viceordförande
+	Förnamn3 Efternamn3, % Sekreterare
+	% Förnamn4 Efternamn4, % Skattmästare
+	Förnamn5 Efternamn5, % Programchef
+	% Förnamn6 Efternamn6, % Studiesekreterare
+	Förnamn7 Efternamn7, % Extra styrelsemedlem
+	Förnamn8 Efternamn8, % Extra styrelsemedlem
+}
+
+%% Om man vill ändra var mötet hölls kan man ta bort kommentaren och editera argumentet
+% \plats{Kafferummet}
+
+%% Om man vill ändra på "övriga närvarande" kan man ta bort kommentaren och editera argumentet
+\medlemmar{Se bilaga 1.}
+
+% Bilagorna kommer i den här ordningen på i slutet av dokumentet.
+\bilaga{Närvarande vid mötet}
+\bilaga{En annan mindre viktig bilaga}
+
+% Signaturerna kommer i den här ordningen allra sist i dokumentet. Om det är udda antal hamnar den sista ensam på en rad, annars printas de i par.
+\signatur{Ordförande, Förnamn1 Efternamn1}
+\signatur{Sekreterare, Förnamn2 Efternamn2}
+\signatur{Ordförande, Förnamn3 Efternamn3}
+\signatur{Sekreterare, Förnamn4 Efternamn4}
+\signatur{Sekreterare, Förnamn5 Efternamn5}
+
+%===========================================================================================
+% För att kunna använda den här protokollbottnen måste "protokollspektrum.cls" filen finnas
+% i samma mapp som ".tex" filen som editeras.
+%
+%
+% Protokollet består av "punkter", punkterna kan sättas in med två olika kommandon:
+%
+% \punkt{<title>}{<innehåll>}
+%
+% Enklaste sättet att sätta in en punkt är att använda det här kommandot. Men om man vill
+% sätta in några extra radbyten eller av någon anledning behöver använda mera LaTeX-kod
+% för att fylla i innehållet, så kan man använda det andra sättet:
+%
+% \begin{punkten}{<titel>}
+% <innehåll>
+% \end{punkten}
+%
+% Programmet sköter numreringen av punkterna själv, så enda användaren måste göra är att
+% sätta dem i rätt ordning.
+%
+%
+% LaTeX bryr sig inte om de flesta tabbar/radbyten, utan man måste specifikt säga åt det
+% att använda ett blankt utrymme.
+%
+% Man kan sätta hur många tommar rader som helst mellan punkterna, men innuti \punkt-
+% kommandot är ett av undantagen för tomma rader.
+%
+% När man skapar PDF:en brukar LaTeX oftast villa göra de temporära hjälpfilerna flera
+% gånger, för att alla referenser ska fungera. I det här fallet gäller det främst
+% sidnumrerningen.
+%
+%
+% Filen "template.tex" har grundstrukturen för ett protokoll.
+%===========================================================================================
+
+
+\begin{document}
+
+\anteckningstart{En anteckning före första punkten}
+
+% Här är några alternativa sätt att skriva punkter med \punkt-kommandot
+
+\punkt{Mötets öppnande}{Mötet öppnades klockan 18:06.}
+
+\punkt{Mötets öppnande}{
+Mötet öppnades klockan 18:06.
+}
+
+\punkt{Mötets öppnande}{
+	Mötet öppnades klockan 18:06.	% LaTeX bryr sig inte om tabbar i början av rader
+}
+
+\punkt{Mötets öppnande}{
+	Mötet
+	öppnades
+	klockan
+	18:06.	% LaTeX bryr sig inte heller om radbyten
+}
+
+% För att skriva ett radbyte, måste man säga "ny rad"
+\punkt{Mötets öppnande}{
+	Mötet \\			% Två olika sätt att skriva "ny rad"
+	öppnades \newline	%
+	klockan
+	18:06.	% LaTeX bryr sig inte heller om radbyten
+}
+
+%%%% Det här funkar inte!!! Kan inte använda tomma rader i det här kommandot
+%%%\punkt{Mötets öppnande}{
+%%%
+%%%Mötet öppnades klockan 18:06.
+%%%}
+
+\punkt{Konstaterande av mötets stadgeenlighet och beslutförhet}{Mötet konstaterades beslutfört och stadgeenligt sammankallat.}
+
+\anteckning{En anteckning mellan punkterna}
+
+\punkt{Uppläsning och godkännande av föredragningslistan}{Föredragningslistan lästes upp och godkändes.}
+
+\punkt{Höstens månadsmöten}{Höstens månadsmöten ordnas 14.9, 12.10, 16.11 och 14.12.}
+
+\punkt{Höstens program}{
+	Höstens program är 21.9 Gulisintagning, 24-25.9 Kräftis, 28.9 Gulisäventyret, 8.10 Oktoberfest,
+	13-16.10 Sverigeexkursion, 25.10 Campussitz, 29-31.10 Gumtäkts Föreningars Gemensamma
+	Kryssningar (GFGK), 11.11 Sits 2, 18.11 Deltagande i publiken av Uutisvuoto, 25-27.11 Bang!-
+	turnering, 6.12 Hemligt program och 9.12 Julfest tillsammans med Svenska Naturvetarklubben
+	(SvNK).
+}
+
+\begin{punkten}{Meddelanden}
+Gånget program är
+
+14.5 Vårfest
+
+11.6 Sommarträff 1
+
+18-19.6 Jukolakavlen
+
+30.7 Sommarträff 2
+
+19-27.8 Exkursion till Budapest
+
+28.8 Gulispiknik
+
+2.9 Gulisgrillnng
+
+9.9 Gulissitz
+
+12.9 Kung fu panda-filmkväll.
+
+% Man kan ha tomma rader i det här kommandot (LaTeX-språk: environment, \begin{} + \end{})
+\end{punkten}
+
+\punkt{Övrigt}{Helsingfors Universitets Studentkårs (HUS) delegationsval ordnas 26-28.10 och 31.10-2.11. Om
+någon är intresserad av att ställa upp, kontakta Förnamn Efternamn senast under nästa vecka.
+Kommande program är 21.9 Gulisintagning, 24-25.9 Kräftis, 28.9 Gulisäventyret, 8.10
+Oktoberfest och 12.10 Månadsmöte.}
+
+\punkt{Mötets avslutande}{Mötet avslutades klockan 18:25.}
+
+
+\anteckningslut{En anteckning efter sista punkten}
+
+\end{document}
